@@ -261,7 +261,7 @@ function foliox_tm_preloader(){
 		}, 800);
 		setTimeout(function() {
 			preloader.remove();
-		}, 2000);
+		}, 1300);
 
 	} else {
 		preloader.remove();
