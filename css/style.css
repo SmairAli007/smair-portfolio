@@ -521,7 +521,27 @@ h6 { font-size: 16px; }
 	overflow: hidden;
 	position: relative;
 }
+.foliox_tm_button button{
+	font-family: var(--font-family-extra);
+	color: #fff;
+	display: inline-block;
+	background-color: var(--extra-color);
+	padding: 18px 43px;
+	border-radius: 50px;
+	overflow: hidden;
+	position: relative;
+}
 .foliox_tm_button a span{
+	position: relative;
+	z-index: 2;
+	
+	-webkit-transition: all .3s ease;
+	   -moz-transition: all .3s ease;
+	    -ms-transition: all .3s ease;
+	     -o-transition: all .3s ease;
+	        transition: all .3s ease;
+}
+.foliox_tm_button button span{
 	position: relative;
 	z-index: 2;
 	
@@ -547,11 +567,33 @@ h6 { font-size: 16px; }
 	     -o-transition: all .3s ease;
 	        transition: all .3s ease;
 }
+.foliox_tm_button button:before{
+	position: absolute;
+	content: "";
+	left: -10px;
+	right: -10px;
+	bottom: -10px;
+	top: -10px;
+	background-color: #fff;
+	transform: translateY(100%);
+	
+	-webkit-transition: all .3s ease;
+	   -moz-transition: all .3s ease;
+	    -ms-transition: all .3s ease;
+	     -o-transition: all .3s ease;
+	        transition: all .3s ease;
+}
 .foliox_tm_button a:hover:before{
 	transform: translateY(0);
 }
 .foliox_tm_button a:hover span{
 	color: #000;
+}
+.foliox_tm_button button:hover span{
+	color: #000;
+}
+.foliox_tm_button button:hover:before{
+	transform: translateY(0);
 }
 .foliox_tm_hero .right{
 	width:50%;
@@ -658,6 +700,8 @@ h6 { font-size: 16px; }
 .foliox_tm_about .big_image img{
 	max-width: 425px;
 	max-height: 510px;
+	border-radius: 25px;
+	width: 100%;
 }
 .foliox_tm_about .small_image{
 	position: absolute;
@@ -2250,7 +2294,7 @@ input[type=number] {
 }
 .progressbar .text{
 	position: absolute;
-    bottom: 100px;
+    bottom: 80px;
     left: 0px;
     font-size: 13px;
     transform: rotateZ(90deg);
@@ -2283,6 +2327,7 @@ input[type=number] {
 	.foliox_tm_hero .name{font-size: 75px;margin-bottom: 14px;}
 	.foliox_tm_hero .job{font-size: 20px;margin-bottom: 35px;}
 	.foliox_tm_button a{padding: 15px 40px;}
+	.foliox_tm_button button{padding: 15px 40px;}
 	.foliox_tm_hero .right img{max-width: 400px;max-height: 400px;}
 	.foliox_tm_features .list ul li .title{font-size: 21px;}
 	.foliox_tm_main_title h3{font-size: 40px;}
@@ -2338,6 +2383,7 @@ input[type=number] {
 	.foliox_tm_hero .name{font-size: 65px;margin-bottom: 12px;}
 	.foliox_tm_hero .job{font-size: 19px;margin-bottom: 35px;}
 	.foliox_tm_button a{padding: 13px 38px;}
+	.foliox_tm_button button{padding: 13px 38px;}
 	.foliox_tm_features .list ul li{width: 50%;}
 	.foliox_tm_main_title span{font-size: 19px;}
 	.foliox_tm_main_title h3{font-size: 35px;}
