@@ -1115,7 +1115,7 @@
 						</div>
 						<div class="right wow fadeInRight" data-wow-duration="1s">
 							<div class="fields">
-								<form action="https://formsubmit.co/smairali995@gmail.com" method="POST" class="contact_form" id="contact_form"
+								<form id="my-form" action="https://formspree.io/f/mqkvyvlr" method="POST" class="contact_form"
 									autocomplete="on">
 									<div class="returnmessage"
 										data-success="Your message has been received, We will contact you soon."></div>
@@ -1129,14 +1129,14 @@
 										</ul>
 									</div>
 									<div class="message_area">
-										<textarea id="message" placeholder="Write your message here"></textarea>
+										<textarea id="message" name="message" placeholder="Write your message here"></textarea>
 									</div>
 									<div class="foliox_tm_button">
-										<button id="send_message" href="mailto:smairali995@gmail.com" type="Submit">
+										<button id="my-form-button" type="Submit">
 											<span>Submit Now</span>
 										</button>
 									</div>
-
+									<p id="my-form-status"></p>
 									<!-- If you want to change mail address to yours please open modal.php folder and go to the line 4 -->
 
 								</form>
@@ -1176,6 +1176,40 @@
 	<!-- / WRAPPER ALL -->
 
 	<!-- SCRIPTS -->
+
+	<script>
+		var form = document.getElementById("my-form");
+		
+		async function handleSubmit(event) {
+		  event.preventDefault();
+		  var status = document.getElementById("my-form-status");
+		  var data = new FormData(event.target);
+		  fetch(event.target.action, {
+			method: form.method,
+			body: data,
+			headers: {
+				'Accept': 'application/json'
+			}
+		  }).then(response => {
+			if (response.ok) {
+			  status.innerHTML = "Thanks for your submission!";
+			  form.reset()
+			} else {
+			  response.json().then(data => {
+				if (Object.hasOwn(data, 'errors')) {
+				  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+				} else {
+				  status.innerHTML = "Oops! There was a problem submitting your form"
+				}
+			  })
+			}
+		  }).catch(error => {
+			status.innerHTML = "Oops! There was a problem submitting your form"
+		  });
+		}
+		form.addEventListener("submit", handleSubmit)
+	</script>
+
 	<script src="js/jquery.js"></script>
 	<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
 	<script src="js/plugins.js"></script>
